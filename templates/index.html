@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy-First Health Tracker</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Health & Wellness Tracker</h1>
+            <p>Your privacy-focused health companion</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="nutrition">Nutrition</button>
+            <button class="tab-button" data-tab="hydration">Hydration</button>
+            <button class="tab-button" data-tab="calculators">Calculators</button>
+            <button class="tab-button" data-tab="progress">Progress</button>
+        </div>
+
+        <div class="tab-content active" id="nutrition">
+            <h2>Nutrition Tracker</h2>
+            <div class="search-container">
+                <input type="text" id="food-search" placeholder="Search for food...">
+                <button id="search-btn">Search</button>
+            </div>
+            <div id="food-results"></div>
+            
+            <h3>Add Custom Food</h3>
+            <form id="custom-food-form">
+                <input type="text" id="food-name" placeholder="Food name" required>
+                <input type="number" id="calories" placeholder="Calories" required>
+                <input type="number" id="protein" placeholder="Protein (g)" required>
+                <input type="number" id="carbs" placeholder="Carbs (g)" required>
+                <input type="number" id="fat" placeholder="Fat (g)" required>
+                <button type="submit">Add Food</button>
+            </form>
+            
+            <div class="nutrition-display">
+                <div class="macros">
+                    <div class="macro protein">
+                        <h4>Protein</h4>
+                        <p id="protein-total">0g</p>
+                    </div>
+                    <div class="macro carbs">
+                        <h4>Carbs</h4>
+                        <p id="carbs-total">0g</p>
+                    </div>
+                    <div class="macro fat">
+                        <h4>Fat</h4>
+                        <p id="fat-total">0g</p>
+                    </div>
+                    <div class="macro calories">
+                        <h4>Calories</h4>
+                        <p id="calories-total">0</p>
+                    </div>
+                </div>
+                
+                <div class="history-section">
+                    <div id="food-log" class="food-history"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="hydration">
+            <h2>Hydration Tracker</h2>
+            <div class="water-tracker">
+                <div class="water-goal">
+                    <h3>Today's Water Intake</h3>
+                    <div class="water-display">
+                        <span id="water-consumed">0</span> / <span id="water-goal">2000</span> ml
+                    </div>
+                    <div class="water-buttons">
+                        <button class="water-add" data-amount="250">+250ml</button>
+                        <button class="water-add" data-amount="500">+500ml</button>
+                        <button class="water-add" data-amount="1000">+1000ml</button>
+                    </div>
+                    <div class="custom-water-intake">
+                        <h3>Custom Water Intake</h3>
+                        <form id="custom-water-form">
+                            <input type="number" id="custom-water-amount" placeholder="Amount in ml" min="1" required>
+                            <button type="submit">Add Custom Amount</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="water-history">
+                    <div id="water-log"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="calculators">
+            <h2>Health Calculators</h2>
+            <div class="calculator" id="bmi-calculator">
+                <h3>BMI Calculator</h3>
+                <form id="bmi-form">
+                    <input type="number" id="bmi-height" placeholder="Height (cm)" required>
+                    <input type="number" id="bmi-weight" placeholder="Weight (kg)" required>
+                    <button type="submit">Calculate BMI</button>
+                </form>
+                <div id="bmi-result"></div>
+            </div>
+            
+            <div class="calculator" id="bmr-calculator">
+                <h3>BMR Calculator</h3>
+                <form id="bmr-form">
+                    <select id="bmr-gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <input type="number" id="bmr-age" placeholder="Age" required>
+                    <input type="number" id="bmr-height" placeholder="Height (cm)" required>
+                    <input type="number" id="bmr-weight" placeholder="Weight (kg)" required>
+                    <select id="bmr-activity" required>
+                        <option value="">Activity Level</option>
+                        <option value="1.2">Sedentary</option>
+                        <option value="1.375">Lightly Active</option>
+                        <option value="1.55">Moderately Active</option>
+                        <option value="1.725">Very Active</option>
+                        <option value="1.9">Extra Active</option>
+                    </select>
+                    <button type="submit">Calculate BMR</button>
+                </form>
+                <div id="bmr-result"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="progress">
+            <h2>Progress Tracking</h2>
+            <div class="weight-tracker">
+                <h3>Weight History</h3>
+                <form id="weight-form">
+                    <input type="date" id="weight-date" required>
+                    <input type="number" id="weight-value" placeholder="Weight (kg)" step="0.1" required>
+                    <button type="submit">Add Entry</button>
+                </form>
+                <canvas id="weight-chart"></canvas>
+            </div>
+            
+            <div class="projection">
+                <h3>Weight Projection</h3>
+                <form id="projection-form">
+                    <input type="number" id="projection-days" placeholder="Days to project" required>
+                    <input type="number" id="projection-calories" placeholder="Daily calories" required>
+                    <button type="submit">Project Weight</button>
+                </form>
+                <div id="projection-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
