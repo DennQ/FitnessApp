@@ -1,4 +1,4 @@
-# Health and Wellness Trackker
+# Health and Wellness Tracker
 
 ![image](https://github.com/user-attachments/assets/5e6a2c53-bbd8-40a1-ae4f-0fbcd3770c49)
 
@@ -15,15 +15,15 @@
 
 A privacy-focused, browser-based health and wellness tracker that stores all data locally in your browser.
 
-## 🌟 Features
+##  Features
 
-- 🍎 **Nutrition Tracking** - Search 150+ foods daily using built-in API
-- 💧 **Hydration Tracking** - Log water intake with presets or custom amounts
-- 📊 **Health Calculators** - BMI and BMR calculators with recommendations
-- 📈 **Progress Tracking** - Weight trends and projections
-- 🔒 **Local Storage** - All data stays in your browser (no cloud storage)
+-  **Nutrition Tracking** - Search 150+ foods daily using built-in API
+-  **Hydration Tracking** - Log water intake with presets or custom amounts
+-  **Health Calculators** - BMI and BMR calculators with recommendations
+-  **Progress Tracking** - Weight trends and projections
+-  **Local Storage** - All data stays in your browser (no cloud storage)
 
-## 🚀 Quick Installation
+##  Quick Installation
 
 ```bash
 # 1. Clone the repository
